@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+
+    android:background="@color/white"
+    android:padding="@dimen/dp15">
+
+    <TextView
+        android:id="@+id/tv_wages_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentStart="true"
+        android:layout_marginEnd="@dimen/dp10"
+        android:layout_toStartOf="@+id/iv_more"
+        android:drawableStart="@drawable/ic_blue_point"
+        android:drawablePadding="@dimen/dp5"
+        android:text="七月份工资明细"
+        android:textColor="@color/maintextcolor"
+        android:textSize="@dimen/sp14" />
+
+    <ImageView
+        android:id="@+id/iv_more"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_wages_title"
+        android:layout_alignBottom="@+id/tv_wages_title"
+        android:layout_alignParentEnd="true"
+        android:src="@drawable/ic_more" />
+
+    <TextView
+        android:id="@+id/tv_gs_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_wages_title"
+        android:layout_marginStart="@dimen/dp10"
+        android:layout_marginTop="@dimen/dp15"
+        android:text="个税扣款：" />
+
+    <TextView
+        android:id="@+id/tv_gs"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_gs_label"
+        android:layout_toEndOf="@+id/tv_gs_label"
+        android:text="30.0"
+        android:textColor="@color/lightred" />
+
+    <TextView
+        android:id="@+id/tv_sb_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_gs_label"
+        android:layout_alignStart="@+id/tv_gs_label"
+        android:layout_marginTop="@dimen/dp10"
+        android:text="社保扣款：" />
+
+    <TextView
+        android:id="@+id/tv_sb"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_sb_label"
+        android:layout_toEndOf="@+id/tv_sb_label"
+        android:text="300.0"
+        android:textColor="@color/lightred" />
+
+    <View
+        android:id="@+id/view1"
+        android:layout_width="1px"
+        android:layout_height="1px"
+        android:layout_centerHorizontal="true" />
+
+    <TextView
+        android:id="@+id/tv_yf_wages_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_wages_title"
+        android:layout_marginStart="@dimen/dp20"
+        android:layout_marginTop="@dimen/dp15"
+        android:layout_toEndOf="@+id/view1"
+        android:text="应付工资：" />
+
+    <TextView
+        android:id="@+id/tv_yf_wages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_yf_wages_label"
+        android:layout_toEndOf="@+id/tv_yf_wages_label"
+        android:text="9000.0"
+        android:textColor="@color/maincolor" />
+
+    <TextView
+        android:id="@+id/tv_sf_wages_label"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/tv_yf_wages_label"
+        android:layout_alignStart="@+id/tv_yf_wages_label"
+        android:layout_marginTop="@dimen/dp10"
+        android:text="实发工资：" />
+
+    <TextView
+        android:id="@+id/tv_sf_wages"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignTop="@+id/tv_sf_wages_label"
+        android:layout_toEndOf="@+id/tv_sf_wages_label"
+        android:text="8547.0"
+        android:textColor="@color/maincolor" />
+</RelativeLayout>
