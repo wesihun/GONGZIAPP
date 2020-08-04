@@ -111,7 +111,7 @@ public class WagesDetailActivity extends BaseActivity {
             @Override
             public void onSuccess(WagesInfoBean bean) {
                 if (bean.getCode() != 200) {
-                    ToastUtil.show(context, "网络连接失败");
+                    ToastUtil.show(context, "数据获取失败");
                     return;
                 }
                 setPage(bean.getData());
@@ -152,7 +152,8 @@ public class WagesDetailActivity extends BaseActivity {
             `BATCHID` varchar(255) CHARACTER SET utf32 COLLATE utf32_general_ci NULL DEFAULT NULL COMMENT '批次编号',
             `YEARMONTH` varchar(100) CHARACTER SET utf32 COLLATE utf32_general_ci NULL DEFAULT NULL COMMENT '年月',
             `CREATETIME` datetime(0) NULL DEFAULT NULL COMMENT '创建时间',*/
-        tv_title.setText(data.getYearmonth() + "月工资明细");
+
+        tv_title.setText(String.format("%s月份工资明细", data.getYearmonth()));
         tv_wages.setText(String.valueOf(data.getJle()));
         tv_base_wages.setText(String.valueOf(data.getGwjbgz()));
         tv_bonus.setText(String.valueOf(data.getJz()));

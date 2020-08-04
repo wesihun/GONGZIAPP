@@ -5,7 +5,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.winto.develop.wages.R;
@@ -49,7 +48,7 @@ public class WagesListAdapter extends BaseAdapter {
             holder = (ViewHolder) convertView.getTag();
         }
         WagesListBean.DataBean wages = getItem(position);
-        holder.tv_wages_title.setText(wages.getYearmonth());
+        holder.tv_wages_title.setText(String.format("%s月份工资明细", wages.getYearmonth()));
         holder.tv_gs.setText(String.valueOf(wages.getGskk()));
         holder.tv_sb.setText(String.valueOf(wages.getSbje()));
         holder.tv_yf_wages.setText(String.valueOf(wages.getYfgz()));

@@ -39,31 +39,28 @@ public class SavePasswordActivity extends BaseActivity {
 
     @Override
     protected void initClick() {
-        btn_save.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                String userName = et_user_name.getText().toString().trim();
-                if (TextUtils.isEmpty(userName)) {
-                    ToastUtil.show(context, "请输入用户名");
-                    return;
-                }
-                String password = et_password.getText().toString().trim();
-                if (TextUtils.isEmpty(password)) {
-                    ToastUtil.show(context, "请输入密码");
-                    return;
-                }
-                String passwordConfirm = et_password_confirm.getText().toString().trim();
-                if (TextUtils.isEmpty(passwordConfirm)) {
-                    ToastUtil.show(context, "请输入确认密码");
-                    return;
-                }
-                String idCard = et_id_card.getText().toString().trim();
-                if (TextUtils.isEmpty(idCard)) {
-                    ToastUtil.show(context, "请输入身份证号后四位");
-                    return;
-                }
-                register(userName, password, idCard);
+        btn_save.setOnClickListener(view -> {
+            String userName = et_user_name.getText().toString().trim();
+            if (TextUtils.isEmpty(userName)) {
+                ToastUtil.show(context, "请输入用户名");
+                return;
             }
+            String password = et_password.getText().toString().trim();
+            if (TextUtils.isEmpty(password)) {
+                ToastUtil.show(context, "请输入密码");
+                return;
+            }
+            String passwordConfirm = et_password_confirm.getText().toString().trim();
+            if (TextUtils.isEmpty(passwordConfirm)) {
+                ToastUtil.show(context, "请输入确认密码");
+                return;
+            }
+            String idCard = et_id_card.getText().toString().trim();
+            if (TextUtils.isEmpty(idCard)) {
+                ToastUtil.show(context, "请输入身份证号后四位");
+                return;
+            }
+            register(userName, password, idCard);
         });
     }
 
@@ -76,7 +73,7 @@ public class SavePasswordActivity extends BaseActivity {
             @Override
             public void onSuccess(LoginBean bean) {
                 if (bean.getCode() != 200) {
-                    ToastUtil.show(context, "初始化密码失败");
+                    ToastUtil.show(context, "初始化密码失败,请重试");
                     return;
                 }
                 MainApplication.getContext().setToken(bean.getToken());

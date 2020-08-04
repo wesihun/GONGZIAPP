@@ -67,7 +67,7 @@ public class LoginActivity extends BaseActivity {
             @Override
             public void onSuccess(LoginBean bean) {
                 if (bean.getCode() != 200) {
-                    ToastUtil.show(context, "登陆失败");
+                    ToastUtil.show(context, "用户名或密码错误");
                     return;
                 }
                 MainApplication.getContext().setToken(bean.getToken());

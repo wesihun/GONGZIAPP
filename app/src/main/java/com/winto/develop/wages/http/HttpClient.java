@@ -32,7 +32,7 @@ public final class HttpClient {
                 Request.Builder request = chain.request().newBuilder();
                 String token = MainApplication.getContext().getToken();
                 if (!TextUtils.isEmpty(token)) {
-                    request.addHeader("Authorization", token);
+                    request.addHeader("Authorization", "Bearer " + token);
                 }
                 request.build();
 

@@ -1,6 +1,5 @@
 package com.winto.develop.wages.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ImageView;
@@ -9,7 +8,6 @@ import android.widget.ListView;
 import android.widget.RelativeLayout;
 
 import com.scwang.smart.refresh.layout.SmartRefreshLayout;
-import com.winto.develop.wages.MainApplication;
 import com.winto.develop.wages.R;
 import com.winto.develop.wages.adapter.WagesListAdapter;
 import com.winto.develop.wages.base.BaseActivity;
@@ -87,19 +85,10 @@ public class WagesListActivity extends BaseActivity {
         HttpAction.getInstance().getWagesList(params).subscribe(new BaseObserver<WagesListBean>() {
             @Override
             public void onSuccess(WagesListBean bean) {
-                if (bean.getCode() == 400) {
-                    MainApplication.getContext().setToken("");
-                    Intent intent = new Intent();
-                    intent.setClass(context, LoginActivity.class);
-                    //关键的一句，将新的activity置为栈顶
-                    intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
-                    startActivity(intent);
-                    return;
-                }
                 if (bean.getCode() != 200) {
                     srl_refresh.finishRefresh();
                     srl_refresh.finishLoadMore();
-                    ToastUtil.show(context, "网络连接失败");
+                    ToastUtil.show(context, "数据获取失败");
                     showEmptyView(true);
                     return;
                 }
